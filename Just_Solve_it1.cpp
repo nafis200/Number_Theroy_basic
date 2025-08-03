@@ -19,12 +19,12 @@ int main(){
      }
      for(int i = 0; i < n; i++){
          vector<int>v1;
-         int lpf = 1e9;
-         int gpf = 0;
-         int dpf = 0;
-         int tpf = 0;
-         int nod = 1;
-         int sod = 1;
+         int least_prime_factor = 1e9;
+         int greatest_prime_factor = 0;
+         int distnict_prime_factor = 0;
+         int total_prime_factor = 0;
+         int number_of_divisor = 1;
+         int sum_of_divisor = 1;
          map<int,int>mp;
 
          int x = v[i];
@@ -42,25 +42,25 @@ int main(){
              mp[x]++;
          }
          for(auto it: mp){
-            lpf = min(lpf,it.first);
+            least_prime_factor = min(least_prime_factor,it.first);
          }
          for(auto it: mp){
-            gpf = max(gpf,it.first);
+            greatest_prime_factor = max(greatest_prime_factor,it.first);
          }
-         dpf = mp.size();
+         distnict_prime_factor = mp.size();
          for(auto it: mp){
-            tpf +=it.second;
+            total_prime_factor +=it.second;
          }
 
          for(auto it: mp){
-            nod = nod * (it.second + 1);
+            number_of_divisor = number_of_divisor * (it.second + 1);
          }
 
          for(auto it: mp){
-            sod = sod * (binary_expoential(it.first,(it.second + 1)) - 1) / (it.first - 1);
+            sum_of_divisor = sum_of_divisor * (binary_expoential(it.first,(it.second + 1)) - 1) / (it.first - 1);
          }
 
-         cout << lpf << " " << gpf << " " << dpf << " " << tpf << " " << nod << " " << sod << "\n";
+         cout << least_prime_factor << " " << greatest_prime_factor << " " << distnict_prime_factor << " " << total_prime_factor << " " << number_of_divisor << " " << sum_of_divisor << "\n";
 
      }
 }
