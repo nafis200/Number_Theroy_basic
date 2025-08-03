@@ -1,5 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
+int binary_expoential(int a, int b){
+    int ans = 1;
+    while(b > 0){
+        if(b & 1){
+            ans = ans * a;
+        }
+        b = b / 2;
+        a = a * a;
+    }
+    return ans;
+}
 int main(){
      int n; cin >> n;
      vector<int>v(n);
@@ -46,7 +57,7 @@ int main(){
          }
 
          for(auto it: mp){
-            sod = sod * (pow(it.first,(it.second + 1)) - 1) / (it.first - 1);
+            sod = sod * (binary_expoential(it.first,(it.second + 1)) - 1) / (it.first - 1);
          }
 
          cout << lpf << " " << gpf << " " << dpf << " " << tpf << " " << nod << " " << sod << "\n";
