@@ -21,7 +21,6 @@ void sieve()
         }
     }
 }
-
 void not_zero()
 {
     for (int i = 2; i < N; i++)
