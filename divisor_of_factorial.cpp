@@ -2,9 +2,9 @@
 using namespace std;
 
 const int N = 50007;
+const int MOD = 1e9 + 7;
 bool is_not_prime[N];
 vector<int> primes;
-
 
 void sieve() {
     is_not_prime[0] = is_not_prime[1] = true;
@@ -43,7 +43,7 @@ int main() {
                 temp /= p;
             }
 
-            ans *= (exponent + 1);
+            ans = (1LL * ans * (exponent + 1)) % MOD;
         }
 
         cout << ans << "\n";
